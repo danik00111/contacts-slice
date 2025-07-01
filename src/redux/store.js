@@ -8,11 +8,12 @@ const persistConfig = {
   key: "root", // кореневий ключ для збереження даних
   storage,
 };
-const persistedContactReducer = persistReducer(persistConfig, contactReducer);
+// const persistedContactReducer = persistReducer(persistConfig, contactReducer);
 
 export const store = configureStore({
   reducer: {
-    cont: persistedContactReducer,
+    // cont: persistedContactReducer,
+    cont: contactReducer,
     fil: filterReducer,
   },
   middleware: (getDefMW) => getDefMW({
@@ -22,4 +23,4 @@ export const store = configureStore({
   }),
 });
 
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);
