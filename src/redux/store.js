@@ -16,7 +16,7 @@ export const store = configureStore({
     cont: contactReducer,
     fil: filterReducer,
   },
-  middleware: (getDefMW) => getDefMW({
+  middleware: (getDefMW) => getDefMW({ // currently does nothing
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },

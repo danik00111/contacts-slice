@@ -8,7 +8,6 @@ function App() {
 
   const contacts = useSelector(state=>state.cont)
   const filter = useSelector(state=>state.fil)
-  console.log(filter);
   const dispatch = useDispatch()
 
   const addcontact =e=> {
