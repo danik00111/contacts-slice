@@ -1,5 +1,4 @@
-import { persistStore, persistReducer, FLUSH,
-  REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
+import { persistStore, persistReducer } from "redux-persist";
 import { contactReducer, filterReducer } from './reducers'
 import { configureStore } from '@reduxjs/toolkit'
 import storage from "redux-persist/lib/storage"; // localStorage?
@@ -18,7 +17,11 @@ export const store = configureStore({
   },
   middleware: (getDefMW) => getDefMW({ // currently does nothing
     serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      ignoredActions: [
+        "persist/FLUSH", "persist/REHYDRATE",
+        "persist/PAUSE", "persist/PERSIST",
+        "persist/PURGE", "persist/REGISTER" // maybe you dont need all of these?
+      ],
     },
   }),
 });
