@@ -5,9 +5,10 @@ import { add, del, set } from './redux/actions'
 
 
 function App() {
-
   const contacts = useSelector(state=>state.cont)
-  const filter = useSelector(state=>state.fil)
+  // const filter = useSelector(state=>state.fil)
+  console.log(contacts);
+  if(!Array.isArray(contacts)) throw new Error('contacts isn\'t an array, is instead this ^');
   const dispatch = useDispatch()
 
   const addcontact =e=> {
